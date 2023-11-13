@@ -14,3 +14,16 @@ Step by step:
 1. greare una tabella dipartimenti; students; corsi di studio;clases;prof;apeli
 2. one to many : departimenti -> corsi di studio; corsi di studio -> clases; corsi di studio -> studenti; clases -> apeals;
 3. many to many : clases <-> prof;  students <-> apeli;
+===
+Parte 2:
+Dopo aver creato un nuovo database nel vostro phpMyAdmin e aver importato lo schema allegato, eseguite le query del file allegato.
+Cosa consegnare? Dopo aver testato le vostre query con phpMyAdmin, riportatele in un file txt e caricatelo nella vostra repo.
+===
+BONUS:
+Risolvere le query con GROUP BY
+===
+Step by Step
+1. aprire il zip in phpmyadmin
+2. reverse engeneer in My SQL workbench
+3. in SQL My Admin ingresare al fime e fare le ricerche pertinenti in SQL
+4. tutti i resultati sono incollati nel fime searches.docx
