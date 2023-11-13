@@ -13,6 +13,19 @@ SELECT *
 FROM `students`
 WHERE `date_of_birth` <= '1992-11-13';
 
+o
+
+SELECT *
+FROM `students`
+WHERE `date_of_birth` <= NOW() - INTERVAL 31 YEAR;
+
+o 
+
+SELECT *
+FROM `students`
+WHERE `date_of_birth` <= (YEAR(CURRENT_DATE) - 31) * INTERVAL 1 YEAR;
+
+
 4-	Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 SELECT *
 from `courses`
