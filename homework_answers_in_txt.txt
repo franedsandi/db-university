@@ -153,14 +153,23 @@ _________________________________________________________________________
 BONUS: 
 1-Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
 ------------------------------------------------------
-SELECT `students`.`surname` AS `student_lastname`, `students`.`name` AS `student_name`, `students`.`registration_number`, `courses`.`name` AS `course_name`, COUNT(*) AS repeticiones, MAX(`exam_student`.`vote`) AS `max_vote`
-FROM `students`
-JOIN `exam_student` 
-ON `students`.`id`= `exam_student`.`student_id`
-JOIN `exams` 
-ON `exam_student`.`exam_id` = `exams`.`id`
-JOIN `courses` 
-ON `exams`.`course_id` = `courses`.`id`
-GROUP BY `exam_student`.`student_id`, `courses`.`name`
-HAVING `max_vote` >= 18
-ORDER BY `students`.`surname` ASC , `students`.`name` ASC;
+SELECT
+    `students`.`surname` AS `student_lastname`,
+    `students`.`name` AS `student_name`,
+    `students`.`registration_number`,
+    `courses`.`name` AS `course_name`,
+    COUNT(`exam_student`.`student_id`) AS Tentativi,
+    MAX(`exam_student`.`vote`) AS `max_vote`
+FROM
+    `students`
+JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id`
+JOIN `courses` ON `exams`.`course_id` = `courses`.`id`
+GROUP BY
+    `exam_student`.`student_id`,
+    `courses`.`name`
+HAVING
+    `max_vote` >= 18
+ORDER BY
+    `students`.`surname` ASC,
+    `students`.`name` ASC;
